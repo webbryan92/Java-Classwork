@@ -1,0 +1,55 @@
+import java.io.*;
+import java.util.Scanner;
+
+public class FirstProgram 
+{
+	private int[][] storage;
+	private File inf, outf;
+	private Scanner input;
+	private PrintWriter output;
+	
+	public FirstProgram()
+	{
+		storage = new int[5][5];
+		inf = new File("input.txt");
+		outf = new File("output.txt");
+		input = new Scanner(inf);
+		output = new PrintWriter(outf);
+	}
+	catch(IOException e)
+	{
+		e.printStackTrace
+	}
+	public void readFile()
+	{
+		int i = 0;
+		while(input.hasNext())
+		{
+			for(int j=0; j <5; j++)
+			{
+				storage[i][i] = input.nextInt();
+			}
+			i++;
+		}
+		input.close();
+	}
+	public void computeInfo()
+	{
+		int min, max;
+		double sum;
+	for(int i=0; i<storage.length; i++)
+	{
+		sum = min = max = storage[i][o];
+		for(int j=1; j<storage[i].length; j++)
+		{
+			sum t= storage[i][j];
+			if(storage[i][j]<min)
+				min = storage[i][j];
+			if(storage[i][j]>max)
+				max = storage[i][j];
+		}
+		output.println(sum/storage[i].length + "," + min + "," + Max);
+		}
+	output.close;
+	}
+}

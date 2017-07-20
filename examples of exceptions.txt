@@ -1,0 +1,199 @@
+import java.util.Scanner; 
+
+public class Quotient {
+  public static void main(String[] args) {
+    Scanner input = new Scanner(System.in);
+    
+    // Prompt the user to enter two integers
+    System.out.print("Enter two integers: ");
+    int number1 = input.nextInt();
+    int number2 = input.nextInt();
+    
+    System.out.println(number1 + " / " + number2 + " is " +
+      (number1 / number2));
+  }
+}
+----------------------------------------------------------
+import java.util.Scanner; 
+
+public class QuotientWithIf {
+  public static void main(String[] args) {
+    Scanner input = new Scanner(System.in);
+    
+    // Prompt the user to enter two integers
+    System.out.print("Enter two integers: ");
+    int number1 = input.nextInt();
+    int number2 = input.nextInt();
+    
+    if (number2 != 0)
+      System.out.println(number1 + " / " + number2 + " is " +
+        (number1 / number2));
+    else
+      System.out.println("Divisor cannot be zero ");
+  }
+}
+---------------------------------------------------------------
+import java.util.Scanner; 
+
+public class QuotientWithException {
+  public static void main(String[] args) {
+    Scanner input = new Scanner(System.in);
+    
+    // Prompt the user to enter two integers
+    System.out.print("Enter two integers: ");
+    int number1 = input.nextInt();
+    int number2 = input.nextInt();
+    
+    try {
+      if (number2 == 0)
+        throw new ArithmeticException("Divisor cannot be zero");
+    
+      System.out.println(number1 + " / " + number2 + " is " +
+        (number1 / number2));
+    }
+    catch (Exception ex) {
+      System.out.println("Exception: an integer " + 
+        "cannot be divided by zero ");
+    }
+
+    System.out.println("Execution continues ...");
+  }
+}
+-----------------------------------------------------------------
+import java.util.Scanner; 
+
+public class QuotientWithMethod { 
+  public static int quotient(int number1, int number2) {
+    if (number2 == 0)
+      throw new ArithmeticException("Divisor cannot be zero");
+
+    return number1 / number2;
+  }
+  
+  public static void main(String[] args) {
+    Scanner input = new Scanner(System.in);
+    
+    // Prompt the user to enter two integers
+    System.out.print("Enter two integers: ");
+    int number1 = input.nextInt();
+    int number2 = input.nextInt();
+    
+    try {
+      int result = quotient(number1, number2);
+      System.out.println(number1 + " / " + number2 + " is " 
+        + result);
+    }
+    catch (Exception ex) {
+      System.out.println("Exception: an integer " + 
+        "cannot be divided by zero ");
+    }
+
+    System.out.println("Execution continues ...");
+  }
+}
+------------------------------------------------------------------
+
+import java.util.*;
+
+public class InputMismatchExceptionDemo {
+  public static void main(String[] args) {
+    Scanner input = new Scanner(System.in);
+    boolean continueInput = true;
+
+    do {
+      try {
+        System.out.print("Enter an integer: ");
+        int number = input.nextInt();
+  
+        // Display the result
+        System.out.println(
+          "The number entered is " + number);
+        
+        continueInput = false;
+      } 
+      catch (InputMismatchException ex) {
+        System.out.println("Try again. (" + 
+          "Incorrect input: an integer is required)");
+        input.nextLine(); // discard input 
+      }
+    } while (continueInput);
+  }
+}
+------------------------------------------------------------------
+
+public class CircleWithException {
+  /** The radius of the circle */
+  private double radius;
+
+  /** The number of the objects created */
+  private static int numberOfObjects = 0;
+
+  /** Construct a circle with radius 1 */
+  public CircleWithException() {
+    this(1.0);
+  }
+
+  /** Construct a circle with a specified radius */
+  public CircleWithException(double newRadius) {
+    setRadius(newRadius);
+    numberOfObjects++;
+  }
+
+  /** Return radius */
+  public double getRadius() {
+    return radius;
+  }
+
+  /** Set a new radius */
+  public void setRadius(double newRadius)
+      throws IllegalArgumentException {
+    if (newRadius >= 0)
+      radius =  newRadius;
+    else
+      throw new IllegalArgumentException(
+        "Radius cannot be negative");
+  }
+
+  /** Return numberOfObjects */
+  public static int getNumberOfObjects() {
+    return numberOfObjects;
+  }
+
+  /** Return the area of this circle */
+  public double findArea() {
+    return radius * radius * 3.14159;
+  }
+}
+----------------------------------------------------------------------
+public class TestCircleWithException {
+  public static void main(String[] args) {
+    try {
+      CircleWithException c1 = new CircleWithException(5);
+      CircleWithException c2 = new CircleWithException(-5);
+      CircleWithException c3 = new CircleWithException(0);
+    }
+    catch (IllegalArgumentException ex) {
+      System.out.println(ex);
+    }
+
+    System.out.println("Number of objects created: " +
+      CircleWithException.getNumberOfObjects());
+  }
+}
+---------------------------------------------------------------------
+public class AssertionDemo {
+  public static void main(String[] args) {
+    int i; int sum = 0;
+    for (i = 0; i < 10; i++) {
+      sum += i;
+    }
+    assert i == 10;
+    assert sum > 10 && sum < 2 * 10 : "sum is " + sum;
+  }
+}
+---------------------------------------------------------------------
+// Do Not do this!!!! 
+public void setRadius(double newRadius) {
+  assert newRadius >= 0;
+  radius =  newRadius;
+}
