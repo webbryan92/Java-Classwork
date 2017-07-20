@@ -1,0 +1,18 @@
+public class Stock {
+  //data members
+  private string symbol = "";
+  private double previousClosingPrice = 0.0;
+  private double currentPrice = 0.0;
+  //constructors
+  public Stock(){
+  }
+  public Stock(string s, double pcp, double p){
+    symbol = s;
+    previousClosingPrice = pcp;
+    currentPrice = p;
+  }
+  Public Stock(Stock s){
+    symbol = s.symbol;
+    previousClosingPrice = s.previousClosingPrice;
+    currentPrice = s.currentPrice;
+  }

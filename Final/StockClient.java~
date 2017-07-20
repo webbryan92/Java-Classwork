@@ -1,0 +1,8 @@
+public class StockClient {
+  public static void main(String[] parameterlist)throws Exception{
+    String[] symbols = new String[7];
+    CircleLibrary.getArrayFromFile(symbols);
+    double[] prevClosingPrices = new double[7];
+    Circle[] circlesFromFile = CircleLibrary.getArray(symbols, prevClosingPrices);
+  }
+}

@@ -1,0 +1,8 @@
+public class StringLibrary{
+  public static int count(String str, char a){
+    int occurance;
+    occurance = count(str, a);
+    return occurance;
+  }
+}
+    

@@ -1,0 +1,26 @@
+public class Circle {
+  double radius = 1.0;
+    //constructor
+  public Circle() {
+  }
+  public Circle(double newRadius) {
+    radius = newRadius;
+  }
+  public Circle(Circle C) {
+    radius = C.radius;
+  }
+  //methods
+  public double area() {
+    return radius * radius * Math.PI;
+  }
+  public double circumference() {
+    return radius * 2 * Math.PI;
+  }
+  public double diameter() {
+    return radius * 2;
+  }
+  public double getRadius() {
+    return radius;
+  }
+  
+}

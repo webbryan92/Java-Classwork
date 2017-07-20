@@ -1,0 +1,10 @@
+public class StockLibrary {
+  public static void readStockCollectionFromFile(Stock[] x)throws Exception{
+    File radii = new File("stocks.txt");
+    Scanner myscanner = new Scanner(radii);
+    for(int i = 0; i < x.length; i++){
+      x[i] = myscanner.nextDouble();
+    }
+   myscanner.close();
+  }
+}
