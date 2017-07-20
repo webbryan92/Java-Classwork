@@ -1,0 +1,23 @@
+public class Triangle{
+  double side1 = 1.0
+  double side2 = 1.0
+  double side3 = 1.0
+  
+  //defualt
+  public Triangle {
+  }
+  //parameters
+  public Triangle(double s1, double s2, double s3){
+    side1 = s1;
+    side2 = s2;
+    side3 = s3;
+  }
+  //copy
+  public Triangle(Triangle T) {
+    side1 = T.side1;
+    side2 = T.side2;
+    side3 = T.side3;
+  }
+    
+   
+}

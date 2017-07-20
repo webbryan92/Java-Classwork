@@ -1,0 +1,17 @@
+public class StringClient{
+  public static void main(String[] args){
+    int number = 0;
+    //clock bs007 = 604;
+    String name = ("Bob Dole");
+    boolean isEqual;
+    System.out.println("My name is " + name);
+    String[] Names = new String[5];
+    String message = new String("How are you today?");
+    String message2 = new String();
+    System.out.println(name + " is doing wonderful.");
+    isEqual = message.equals(name);
+    System.out.println("The two strings are equal is " + isEqual);
+    name.endsWith("ani");
+    System.out.println(name.endsWith("ani"));
+  }
+}
